@@ -45,4 +45,19 @@ public class BarCounter{
     public void onEmptyRequest(int slot){
         emptyCommands[slot].execute();
     }
+    /*
+    Return object as string
+    @param None
+    @return String buffer object as string
+    */
+    public String toString() {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("\n------ Bartender Counter -------\n");
+        for (int i = 0; i < pourCommands.length; i++) {
+                stringBuffer.append("[slot " + i + "] " + pourCommands[i].getClass().getName()
+                        + "    " + emptyCommands[i].getClass().getName() + "\n");
+        }
+        
+        return stringBuffer.toString();
+    }
 }
